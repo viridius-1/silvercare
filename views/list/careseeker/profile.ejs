@@ -44,15 +44,11 @@
               <% if(something.available === 'taken') {%>
               <td><%= something2.name %></td>
               <% }%>
-
-            <!-- <td><a href="update/<%= something._id %>"><button>Update</button></a></td>
-            <td><form method="POST" action="profile/<%= something._id %>?_method=DELETE">
-            <button>delete</button></form></td> -->
-
+      <% if(something.available !== 'taken') {%>
             <td><a href="update/<%= something._id %>"><button type="button" class="btn btn-info">Update</button></a></td>
             <td><form method="POST" action="profile/<%= something._id %>?_method=DELETE">
             <button type="submit" class="btn btn-primary">delete</button></form></td>
-
+        <% }%>
           </tr>
 
         </tbody>
