@@ -27,8 +27,8 @@
             <th>Location</th>
             <th>Price ($/hr)</th>
             <th>Hour</th>
-            <th>Available</th>
             <% if(something.available === 'taken') {%>
+            <th>Available</th>
             <th>Helper</th>
               <% }%>
           </tr>
@@ -40,9 +40,9 @@
             <td><%= something.location %></td>
             <td><%= something.price %></td>
             <td><%= something.hour %></td>
-            <td><%= something.available %></td>
-              <% if(something.available === 'taken') {%>
-              <td><%= something2.name %></td>
+          <% if(something.available === 'taken') {%>
+            <td class="danger"><%= something.available %></td>
+            <td class="danger"><%= something2.name %></td>
               <% }%>
       <% if(something.available !== 'taken') {%>
             <td><a href="update/<%= something._id %>"><button type="button" class="btn btn-info">Update</button></a></td>
