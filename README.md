@@ -19,4 +19,4 @@ Approach:
 2 users login approach to store as separate collection in DB, using 1 passport to authenticate.
 
 Potential problem:
-If a caregiver delete the account, the transacted jobs info will be gone
+If a caregiver delete the account, the transacted jobs info will be gone.
