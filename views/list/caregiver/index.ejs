@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/caregiver">Caregiver</a>
+    </div> -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/caregiver/">Caregiver</a></li>
+        <li><a href="/caregiver/signup">Create New Profile</a></li>
+        <li><a href="/caregiver/login">Login</a></li>
+        <li><a href="/caregiver/profile">Profile</a></li>
+        <li><a href="/caregiver/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<h2>All jobs out there</h2>
+
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+
+            <th>Jobs</th>
+            <th>Location</th>
+            <th>Price ($/hr)</th>
+            <th>Hour</th>
+            <th>Available</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% something.forEach(function(item) { %>
+            <% if(item.available !== 'taken') {%>
+          <tr>
+            <td><%= item.description%></td>
+            <td><%= item.location %></td>
+            <td><%= item.price %></td>
+            <td><%= item.hour %></td>
+            <!-- <% if(item.available !== 'taken') {%> -->
+            <td><%= item.available %></td>
+            <!-- <% }%> -->
+            <td><form action="/careseeker/update/<%= item._id %>?_method=PUT" method="POST">
+                <button type="submit" class="btn btn-info">take job</button>
+                </form>
+            </td>
+            <!-- <td><a href="/caregiver/profile"><button>Take Job</button></a></td> -->
+          </tr>
+
+                <% }%>
+                <% }); %>
+        </tbody>
+      </table>
+      </div>
+  </div>
+
+
+<!-- <h4>All helpers out there </h4>
+
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+
+            <th>Profile</th>
+            <th>Availability</th>
+            <th>Preferred Location</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% something2.forEach(function(item) { %>
+          <tr>
+            <td><%= item.name %></td>
+
+            <td><%= item.description %></td>
+            <td><%= item.availability %></td>
+            <td><%= item.location %></td>
+
+          </tr>
+              <% }); %>
+        </tbody>
+      </table>
+      </div>
+  </div> -->

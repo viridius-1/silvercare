@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/careseeker/">Careseeker</a></li>
+        <li><a href="/careseeker/signup">Create New Job</a></li>
+        <li><a href="/careseeker/login">Login</a></li>
+        <li><a href="/careseeker/profile">Profile</a></li>
+        <li><a href="/careseeker/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2>To UPDATE Job </h2>
+  <form class="form-horizontal" method="POST" action="?_method=PUT">
+  <div class="form-group">
+    <label for="Type">Name</label>
+    <input type="text" name="name" class="form-control" value="<%= something.name %> ">
+</div>
+    <div class="form-group">
+      <label for="authPrice">Price ($/hr)</label>
+      <input id="authPrice" class="form-control" type="Number" name="price"
+      value="<%= something.price %> ">
+    </div>
+
+    <div class="form-group">
+      <label for="authDescription">Description (what type of care do you need)</label>
+      <input id="authDescription" class="form-control" type="description" name="description"
+      value="<%= something.description %> ">
+    </div>
+
+    <div class="form-group">
+      <label for="authHour">Hour (duration)</label>
+      <select id="authHour" class="form-control" type="Number" name="hour"
+      value="<%= something.hour %> ">
+        <option value = '1'> 1 </option>
+        <option value = '2'> 2 </option>
+        <option value = '3'> 3 </option>
+        <option value = '4'> 4 </option>
+        <option value = '5'> 5 </option>
+        <option value = '6'> 6 </option>
+        <option value = '7'> 7 </option>
+        <option value = '8'> 8 </option></select>
+    </div>
+    <div class="form-group">
+    <label for="Name">Location</label>
+    <input id="Name" name="location" class="form-control" value="<%= something.location %>">
+    </div>
+    <input class="btn btn-info" type="submit">
+  </form>

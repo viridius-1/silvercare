@@ -1,0 +1,82 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <!-- <div class="navbar-header">
+      <a class="navbar-brand" href="/caregiver">Caregiver</a>
+    </div> -->
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/caregiver/">Caregiver</a></li>
+        <li><a href="/caregiver/signup">Create New Profile</a></li>
+        <li><a href="/caregiver/login">Login</a></li>
+        <li><a href="/caregiver/profile">Profile</a></li>
+        <li><a href="/caregiver/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2>My Profile</h2>
+
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>My Name</th>
+            <!-- <th>email</th> -->
+            <th>My Specialties</th>
+            <th>Availability</th>
+            <th>Preferred Location</th>
+            <!-- <th>not suppose to be there</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <% something2.forEach(function(item) { %>
+          <tr>
+            <td><%= item.name %></td>
+            <!-- <td><%= item.email%></td> -->
+            <td><%= item.description %></td>
+            <td><%= item.availability %></td>
+            <td><%= item.location %></td>
+            <td><a href="update/<%= item._id %>"><button type="button" class="btn btn-info">Update</button></a></td>
+            <td><form method="POST" action="profile/<%= item._id %>?_method=DELETE">
+            <button type="submit" class="btn btn-primary">delete</button></form></td>
+          </tr>
+              <% }); %>
+        </tbody>
+      </table>
+</div>
+
+  <% if(something.length !== 0) {%>
+<h2>Jobs you have accepted</h2>
+
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Job Owner</th>
+            <th>Job Profile</th>
+            <th>Job Location</th>
+            <th>Price ($/hr)</th>
+            <th>Hour</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <% something.forEach(function(item) { %>
+            <% if(item.available === 'taken') {%>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td><%= item.location %></td>
+            <td><%= item.price %></td>
+            <td><%= item.hour %></td>
+          </tr>
+              <% }%>
+              <% }); %>
+        </tbody>
+      </table>
+  </div>
+
+      <% }%>

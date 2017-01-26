@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/careseeker/">Careseeker</a></li>
+        <li><a href="/careseeker/signup">Create New Job</a></li>
+        <li><a href="/careseeker/login">Login</a></li>
+        <li><a href="/careseeker/profile">Profile</a></li>
+        <li><a href="/careseeker/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<h2>Create Job</h2>
+<br>
+<form action="/careseeker/signup" method="POST">
+  <div class="form-group">
+    <label for="authEmail">Email</label>
+    <input id="authEmail" class="form-control" type="email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="authName">Name</label>
+    <input id="authName" class="form-control" type="text" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="authPassword">Password</label>
+    <input id="authPassword" class="form-control" type="password" name="password">
+  </div>
+
+  <div class="form-group">
+    <label for="authPrice">Price ($/hr)</label>
+    <input id="authPrice" class="form-control" type="Number" name="price">
+  </div>
+
+  <div class="form-group">
+    <label for="authDescription">Description (what care do you need?)</label>
+    <input id="authDescription" class="form-control" type="description" name="description">
+    <input type='checkbox' value = 'dementia care specialize ' type="description" name="description">
+    Specialised care for mental condition including dementia
+    <input type='checkbox' value = 'nursing procedures trained ' type="description" name="description">
+    Nursing procedures such as wound dressing, changing of feeding tubes, injections and monitoring of body vital stats
+    <input type='checkbox' value = 'physio therapy ' type="description" name="description">
+    Therapy to help regain mobility
+    <input type='checkbox' value = 'general care ' type="description" name="description">
+    Personal care, meals delivery and medical escort services
+  </div>
+
+  <div class="form-group">
+    <label for="authHour">Hour (duration)</label>
+    <select id="authHour" class="form-control" type="Number" name="hour">
+      <option value = '1'> 1 </option>
+      <option value = '2'> 2 </option>
+      <option value = '3'> 3 </option>
+      <option value = '4'> 4 </option>
+      <option value = '5'> 5 </option>
+      <option value = '6'> 6 </option>
+      <option value = '7'> 7 </option>
+      <option value = '8'> 8 </option></select>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="authlocation">Location</label>
+    <select id="authlocation" class="form-control" type="location" name="location">
+    <option value = 'north'> North </option>
+    <option value = 'south'> South </option>
+    <option value = 'east'> East </option>
+    <option value = 'west'> West </option></select>
+  </div>
+
+  <div class="form-group">
+    <label for="authHour">Availability</label>
+    <select id="authHour" class="form-control" type="text" name="available">
+      <option value = 'not taken'> not taken </option>
+
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="authName">Type</label>
+    <input id="authName" class="form-control" type="text" name="role" value="careseeker">
+  </div>
+
+  <input class="btn btn-info" type="submit">
+</form>

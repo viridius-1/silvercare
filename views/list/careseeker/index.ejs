@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/careseeker/">Careseeker</a></li>
+        <li><a href="/careseeker/signup">Create New Job</a></li>
+        <li><a href="/careseeker/login">Login</a></li>
+        <li><a href="/careseeker/profile">Profile</a></li>
+        <li><a href="/careseeker/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<h2>All helpers out there </h2>
+
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Profile</th>
+            <th>Availability</th>
+            <th>Preferred location</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% something2.forEach(function(item) { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td><%= item.availability %></td>
+            <td><%= item.location %></td>
+            <!-- <td><a href="update/<%= item._id %>"><button>book<button</a></td> -->
+          </tr>
+              <% }); %>
+        </tbody>
+      </table>
+      </div>
+  </div>

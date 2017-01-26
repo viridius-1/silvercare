@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/careseeker">CareSeeker</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/careseeker/signup">Create New Profile</a></li>
+        <li><a href="/careseeker/login">Login</a></li>
+        <li><a href="/careseeker/profile">Profile</a></li>
+        <li><a href="/careseeker/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2>My Created Job</h2>
+
+
+<div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Jobs</th>
+            <th>Location</th>
+            <th>Price ($/hr)</th>
+            <th>Hour</th>
+            <th>Available</th>
+            <% if(something.available === 'taken') {%>
+            <th>Helper</th>
+              <% }%>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td><%= something.description%></td>
+            <td><%= something.location %></td>
+            <td><%= something.price %></td>
+            <td><%= something.hour %></td>
+            <td><%= something.available %></td>
+              <% if(something.available === 'taken') {%>
+              <td><%= something2.name %></td>
+              <% }%>
+
+            <!-- <td><a href="update/<%= something._id %>"><button>Update</button></a></td>
+            <td><form method="POST" action="profile/<%= something._id %>?_method=DELETE">
+            <button>delete</button></form></td> -->
+
+            <td><a href="update/<%= something._id %>"><button type="button" class="btn btn-info">Update</button></a></td>
+            <td><form method="POST" action="profile/<%= something._id %>?_method=DELETE">
+            <button type="submit" class="btn btn-primary">delete</button></form></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+      </div>
+  </div>

@@ -1,0 +1,95 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/caregiver/">Caregiver</a></li>
+        <li><a href="/caregiver/signup">Create New Profile</a></li>
+        <li><a href="/caregiver/login">Login</a></li>
+        <li><a href="/caregiver/profile">Profile</a></li>
+        <li><a href="/caregiver/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2>Create Profile</h2>
+<br>
+<form action="/caregiver/signup" method="POST">
+  <div class="form-group">
+    <label for="authEmail">Email</label>
+    <input id="authEmail" class="form-control" type="email" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="authName">Name</label>
+    <input id="authName" class="form-control" type="text" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="authPassword">Password</label>
+    <input id="authPassword" class="form-control" type="password" name="password">
+  </div>
+
+    <div class="form-group">
+      <label for="authAvailabiliy">Availability</label>
+      <input type='checkbox' value = 'Mon' type="description" name="availability">
+      Monday
+      <input type='checkbox' value = 'Tue' type="description" name="availability">
+      Tuesday
+      <input type='checkbox' value = 'Wed' type="description" name="availability">
+      Wednesday
+      <input type='checkbox' value = 'Thur' type="description" name="availability">
+      Thursday
+      <input type='checkbox' value = 'Fri' type="description" name="availability">
+      Friday
+      <input type='checkbox' value = 'Sat' type="description" name="availability">
+      Saturday
+      <input type='checkbox' value = 'Sun' type="description" name="availability">
+      Sunday
+      <select id="authAvailability" class="form-control" type="text" name="availability">
+      <option value = '6am-9am'> 6am-9am </option>
+      <option value = '9am-12pm'> 9am-12pm </option>
+      <option value = '12pm-3pm'> 12pm-3pm </option>
+      <option value = '3pm-6pm'>3pm-6pm</option>
+      <option value = '6pm-9pm'> 6pm-9pm </option>
+      <option value = '9pm-11pm'>9pm-11pm</option>
+      <option value = '6am-12pm'>6am-12pm</option>
+      <option value = '12pm-6pm'>12pm-6pm </option>
+      <option value = '8pm-11pm'>8pm-11pm</option>
+      <option value = 'flexible'>flexible timing</option>
+
+      </select>
+
+
+    </div>
+
+  <div class="form-group">
+    <label for="authDescription">Description (what you can offer)</label>
+    <input id="authDescription" class="form-control" type="description" name="description">
+    <input type='checkbox' value = 'dementia care specialize ' type="description" name="description">
+    Specialised care for mental condition including dementia
+    <input type='checkbox' value = 'nursing procedures trained ' type="description" name="description">
+    Nursing procedures such as wound dressing, changing of feeding tubes, injections and monitoring of body vital stats
+    <input type='checkbox' value = 'physio therapy ' type="description" name="description">
+    Therapy to help regain mobility
+    <input type='checkbox' value = 'general care ' type="description" name="description">
+    Personal care, meals delivery and medical escort services
+  </div>
+
+
+  <div class="form-group">
+    <label for="authlocation">Preferred Location</label>
+    <select id="authlocation" class="form-control" type="location" name="location">
+    <option value = 'north'> North </option>
+    <option value = 'south'> South </option>
+    <option value = 'east'> East </option>
+    <option value = 'west'> West </option></select>
+  </div>
+
+  <div class="form-group">
+    <label for="authName">Type</label>
+    <input id="authName" class="form-control" type="text" name="role" value="caregiver">
+  </div>
+
+  <input class="btn btn-info" type="submit">
+</form>
