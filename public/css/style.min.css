@@ -10,6 +10,13 @@ h1{
 }
 
 
+/*#createjob{
+  background-image: url(../img/createjob.png);
+  height: 200px;
+  width: 200px;
+  background-repeat: no-repeat;
+}*/
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");/*!
  * bootswatch v3.3.7
  * Homepage: http://bootswatch.com
