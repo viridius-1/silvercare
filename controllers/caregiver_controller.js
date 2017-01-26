@@ -5,29 +5,25 @@ var seekerSchema = require('../models/careseeker')
 var passport = require('../config/ppConfig')
 var isLoggedIn = require('../middleware/isLoggedIn')
 
-
 router.get('/', function (req, res) {
-    seekerSchema.find({}, function (err, todos) {
+  seekerSchema.find({}, function (err, todos) {
+    if (err) res.status(404).json({msg: 'cannot find any todos'})
+    giverSchema.find({}, function (err, todos2) {
       if (err) res.status(404).json({msg: 'cannot find any todos'})
-      giverSchema.find({}, function (err, todos2) {
-        if (err) res.status(404).json({msg: 'cannot find any todos'})
-        res.render('list/caregiver/', {something: todos, something2: todos2})
-      })
-      })
+      res.render('list/caregiver/', {something: todos, something2: todos2})
+    })
   })
+})
 
-
-  router.get('/profile', isLoggedIn, function (req, res) {
-      giverSchema.find({_id: req.user.id}, function (err, todos2) {
-        console.log(req.user.id);
-        if (err) res.status(404).json({msg: 'can  not find any todos'})
-        seekerSchema.find({anything:req.user.id }, function (err, todos) {
-        console.log(todos);
-        if (err) res.status(404).json({msg: 'cannot find any todos'})
-        res.render('list/caregiver/profile', {something: todos, something2: todos2})
-      })
-      })
+router.get('/profile', isLoggedIn, function (req, res) {
+  giverSchema.find({_id: req.user.id}, function (err, todos2) {
+    if (err) res.status(404).json({msg: 'can  not find any todos'})
+    seekerSchema.find({ anything: req.user.id }, function (err, todos) {
+      if (err) res.status(404).json({msg: 'cannot find any todos'})
+      res.render('list/caregiver/profile', {something: todos, something2: todos2})
+    })
   })
+})
 
 router.get('/signup', function (req, res) {
   res.render('list/caregiver/signup')
@@ -38,8 +34,8 @@ router.get('/login', function (req, res) {
 })
 
 router.get('/update/:id', function (req, res) {
-  giverSchema.findById({_id:req.params.id},function(err,user){
-    res.render('list/caregiver/update',{something:user})
+  giverSchema.findById({_id: req.params.id}, function (err, user) {
+  res.render('list/caregiver/update', {something: user})
   })
 })
 
@@ -49,17 +45,15 @@ router.post('/signup', function (req, res) {
     name: req.body.name,
     password: req.body.password,
     description: req.body.description,
-    location : req.body.location,
-    availability : req.body.availability,
-    role : req.body.role
+    location: req.body.location,
+    availability: req.body.availability,
+    role: req.body.role
 
   }, function (err, createdUser) {
     if (err) {
-      // FLASH -
       req.flash('error', 'Could not create user account')
       res.redirect('/caregiver/signup')
     } else {
-      // FLASH
       passport.authenticate('user-local', {
         successRedirect: '/caregiver/',
         successFlash: 'Account created and logged in'
@@ -86,7 +80,6 @@ router.put('/update/:id', function (req, res) {
   giverSchema.findOneAndUpdate({ _id: req.params.id }, req.body, function (err, todo) {
     if (err) res.status(422).json({msg: 'error updating taco because:' + err})
     else res.redirect('/caregiver/')
-
   })
 })
 
@@ -96,22 +89,5 @@ router.delete('/profile/:id', function (req, res) {
     else res.redirect('/caregiver/')
   })
 })
-
-// router.get('/careseeker/update/:id', function (req, res) {
-//   seekerSchema.findById({_id:req.params.id},function(err,user){
-//     res.render('list/careseeker/update',{something:user})
-// })
-// })
-
-
-// router.put('/careseeker/update/:id', function (req, res) {
-//   req.body.available = 'taken'
-// console.log(req.body.available);
-//   seekerSchema.findOneAndUpdate({ _id: req.params.id }, req.body, function (err, todo) {
-//     if (err) res.status(422).json({msg: 'error updating taco because:' + err})
-//     else res.redirect('/caregiver/')
-//
-//   })
-// })
 
 module.exports = router
